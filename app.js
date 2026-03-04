@@ -6,12 +6,16 @@
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 // Firebase config\
-const firebaseConfig = \{\
-  apiKey: "YOUR_API_KEY",\
-  authDomain: "YOUR_AUTH_DOMAIN",\
-  databaseURL: "YOUR_DATABASE_URL",\
-  projectId: "YOUR_PROJECT_ID",\
-\};\
+const firebaseConfig = {
+  apiKey: "AIzaSyAYt5kT5WDNKeLIKgvy1HegkW5NOiAPiTA",
+  authDomain: "orient-wolf-game.firebaseapp.com",
+  databaseURL: "https://orient-wolf-game-default-rtdb.firebaseio.com",
+  projectId: "orient-wolf-game",
+  storageBucket: "orient-wolf-game.firebasestorage.app",
+  messagingSenderId: "611189979389",
+  appId: "1:611189979389:web:9434299552b989ec0ca694",
+  measurementId: "G-RWN17C3WEY"
+};\
 \
 firebase.initializeApp(firebaseConfig);\
 const db = firebase.database();\
