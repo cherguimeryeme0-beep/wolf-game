@@ -5,7 +5,7 @@
 <title>Orient Wolf Game 🌙🐺</title>
 <link rel="stylesheet" href="style.css">
 
-<!-- Firebase Scripts -->
+<!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 </head>
@@ -23,19 +23,20 @@
     <ul id="playersList"></ul>
     <p id="roleDisplay"></p>
 
-    <div id="gameActions" style="display:none;">
-      <h3>Night Phase Actions</h3>
+    <div id="nightDiv" style="display:none;">
+      <h3>Night Phase</h3>
       <div id="nightActions"></div>
-      <button id="nextPhaseBtn">Next Phase</button>
+      <button id="nextPhaseBtn">End Night</button>
     </div>
 
-    <div id="dayVote" style="display:none;">
+    <div id="dayDiv" style="display:none;">
       <h3>Day Phase - Vote</h3>
       <div id="voteList"></div>
       <button id="voteBtn">Submit Vote</button>
     </div>
-  </div>
 
+    <div id="messageDiv"></div>
+  </div>
 </div>
 
 <script src="app.js"></script>
