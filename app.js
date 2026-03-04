@@ -11,28 +11,39 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
+// DOM Elements
 const joinBtn = document.getElementById("joinBtn");
 const playerNameInput = document.getElementById("playerName");
 const playersList = document.getElementById("playersList");
 const gameDiv = document.getElementById("game");
+const roleDisplay = document.getElementById("roleDisplay");
 
+// Roles
+const roles = ["Villager","Wolf","Seer","Hunter","Doctor"];
+let assignedRole = "";
+let playerName = "";
+
+// Join Game
 joinBtn.addEventListener("click", () => {
-  const name = playerNameInput.value.trim();
-  if (!name) {
-    alert("Enter your name!");
-    return;
-  }
-
-  db.ref("players/" + name).set({
-    name: name,
-    role: "Villager"
+  playerName = playerNameInput.value.trim();
+  if(!playerName) return alert("Enter your name!");
+  
+  // Random Role
+  const randomIndex = Math.floor(Math.random() * roles.length);
+  assignedRole = roles[randomIndex];
+  
+  db.ref("players/" + playerName).set({
+    name: playerName,
+    role: assignedRole
   });
 
   gameDiv.style.display = "block";
   playerNameInput.style.display = "none";
   joinBtn.style.display = "none";
+  roleDisplay.textContent = "Your Role: " + assignedRole;
 });
 
+// Listen for all players
 db.ref("players").on("value", snapshot => {
   playersList.innerHTML = "";
   snapshot.forEach(child => {
@@ -42,3 +53,5 @@ db.ref("players").on("value", snapshot => {
     playersList.appendChild(li);
   });
 });
+
+// Night & Day Phases Placeholder (to expand later)
